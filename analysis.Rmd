@@ -1,0 +1,85 @@
+---
+title: "EDA"
+author: "Josh David"
+date: "1/29/2021"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+### Load Data
+
+```{r}
+
+# API
+data.api <- read_csv('outputs/data/api-data.csv')
+
+# Web Scraped
+data.scraped <- read_csv('outputs/data/scraped-data.csv')
+
+# Provided CSV
+data.csv_provided <- read_csv('x_ca_omcc_providers.csv', col_names = c("Provider Name", "Type of Care",
+                              "Address", "City", "State", "Zip",
+                              "Phone"))
+```
+
+
+
+```{r}
+# SEND DATA TO SQLITE DB
+library(RSQLite)
+conn <- dbConnect(RSQLite::SQLite(), "Providers.db")
+
+# Write the mtcars dataset into a table names mtcars_data
+dbWriteTable(conn, "providers_csv", data.csv_provided)
+dbWriteTable(conn, "providers_scraped", data.scraped)
+dbWriteTable(conn, "providers_api", data.api)
+
+# List all the tables available in the database
+dbListTables(conn)
+
+```
+
+###
+```{r}
+staging.csv_provided <-
+  data.csv_provided %>% 
+  janitor::clean_names()
+
+staging.api <-
+  data.api %>% 
+  janitor::clean_names() %>% 
+  select(-providers_id)
+
+staging.scraped <-
+  data.scraped %>% 
+  janitor::clean_names()
+```
+
+### What is our most unique field (api)?
+```{r}
+staging.api %>% 
+  summarise_all(n_distinct)
+```
+### What is our most unique field (csv)?
+```{r}
+staging.csv_provided %>% 
+  summarise_all(n_distinct)
+```
+
+### What is our most unique field (scraped)?
+```{r}
+staging.scraped %>% 
+  summarise_all(n_distinct)
+```
+
+
+```{r}
+str(data.api)
+```
+```{r}
+str(data.scraped)
+```
+
