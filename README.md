@@ -25,3 +25,24 @@ You will need jupyter notebook or jupyter lab installed to explore the .ipynb fi
 
 To generate HTML data profiles of the various input data sets for EDA / general exploration run the following.  This utilizes the pandas-profiling package.
 ```generate_profiles.py```
+
+## Which language, framework and libraries you chose and why
+
+I initially chose R, and created scripts to pull both web data sources.  I did this primarily because I've been doing a lot of coding in R lately.  I realized that using Python might make more sense here though considering its in the Brightwheel stack and I knew all of this could also be done in Python just as easily.  Python in general is a great glue language - talks to almost everything and has packages that span all areas of software.  I knew of BeautifulSoup and use pandas regularly so it was an easy choice for this.
+
+BeautifulSoup -> standard web scraping package.  Lots of resources online, chances are any weird edge cases, someone else has had and answer's on stackoverflow.
+Pandas -> standard for working with data, does a million things (though I actually prefer R's tidyverse framework for EDA)
+
+
+## Tradeoffs you might have made, anything you left out, or what you might do differently if you were to spend additional time on the project
+
+Big tradeoffs here are mainly due to limited time and not having a database pre-spun up.  If I had a DB to work with - or had the time to set up a DB that I could share with the team - I'd rather send all the raw data right to the DB and do all transformation work in SQL.  I think its preferable to have the raw data, all of the transformation steps, and the final data sets all within one language (SQL).  Allows you to easier trace back the lineage of the data and you can also throw dbt on top of it for documentation & DAGs to understand the flows better.
+
+
+## Other notes
+By the time I got all of the data gathered, I didn't have a ton of time to actually consider the data standardization step.  The ask is also not entirely clear to me.  It requests a source of truth that is standardized that contains "all of the data".  In my view, this data set contains duplication at the very least so a standardized, source of truth data set should not include that extraneous data.
+
+I'd also note that without any context around these data sources its not entirely clear to me what the source of truth data set should represent.  The grains in these data sets seem to represent contacts at various providers.  There are providers with various locations and contacts.  If the source of truth we need is a list of providers, then that is different than a source of truth for a list of contacts.  Both require ommiting certain information.
+
+i.e.  A table/view *providers* might just be provider_name and type .  A table/view *providers_site* or *provider_location* might include provider_name (ideally provider_id , connecting to *providers*) and the address / location based attribuets.  Lastly *provider_contacts* would join to *provider_sites* and have the contact info for people at that provider.
+
