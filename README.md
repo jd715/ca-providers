@@ -1,22 +1,22 @@
-# Foobar
+# CA Providers ETL Service
 
-Foobar is a Python library for dealing with word pluralization.
+This service creates a standardized data set of CA Providers.
+It pulls data from a variety of sources - a heroku applications API, an HTML table on the NACCRR webpage, and a CSV provided in the repo.
+It then cleans this data and lastly calculates a couple of metrics.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
+You will need to download the repo and have python and various python packages installed to run these .py files.
+You will need jupyter notebook or jupyter lab installed to explore the .ipynb file.  I seperated the key scripts to their own dedicated .py files.
 
 ## Usage
 
-```python
-import foobar
+1.  Run a web scraper that will pull down the data within the NACCRR table.
+```retrive_web.py```
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+2.  Run a web scraper that will pull down the data from the Heroku API.
+```retrive_api.py```
+
+2.  Run the following script to clean up and standardize data formats, deduplicate the data, and create a final combined data set.
+```clean_data.py```
 
