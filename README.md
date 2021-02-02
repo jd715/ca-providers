@@ -20,12 +20,6 @@ You will need jupyter notebook or jupyter lab installed to explore the .ipynb fi
 3.  Run the following script to clean up and standardize data formats, deduplicate the data, and create a final combined data set.
 ```clean_data.py```
 
-
-*Optional*
-
-To generate HTML data profiles of the various input data sets for EDA / general exploration run the following.  This utilizes the pandas-profiling package.
-```generate_profiles.py```
-
 ## Which language, framework and libraries you chose and why
 
 I initially chose R, and created scripts to pull both web data sources.  I did this primarily because I've been doing a lot of coding in R lately (quicker for me spin something up).  I realized that using Python might make more sense here though considering its in the Brightwheel stack and I knew all of this could also be done in Python just as easily.  Python in general is a great glue language - talks to almost everything and has packages that span all areas of software.  I knew of BeautifulSoup and use pandas regularly so it was an easy choice for this.
