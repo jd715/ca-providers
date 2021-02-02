@@ -11,10 +11,10 @@ You will need jupyter notebook or jupyter lab installed to explore the .ipynb fi
 
 ## Usage
 
-1.  Run a web scraper that will pull down the data within the NACCRR table.
+1.  Run a web scraper that will pull down the data within the NACCRR table.  source:  https://bw-interviews.herokuapp.com/data/providers
 ```retrive_web.py```
 
-2.  Run a web scraper that will pull down the data from the Heroku API.
+2.  Run a web scraper that will pull down the data from the Heroku API.  source:  http://naccrrapps.naccrra.org/navy/directory/programs.php?program=omcc&state=CA
 ```retrive_api.py```
 
 3.  Run the following script to clean up and standardize data formats, deduplicate the data, and create a final combined data set.
