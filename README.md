@@ -40,14 +40,15 @@ Big tradeoffs here are mainly due to limited time and not having a database pre-
 
 
 ## Other notes
-By the time I got all of the data gathered, I didn't have much time to actually consider the data standardization step.  The requirements were also not entirely clear to me. 
+By the time I got all of the data gathered, I didn't have too much time to work on the data standardization step.  The requirements were also not entirely clear to me. 
 
--  It requests all data to be in the final table but for it also to be standardized in some way and a source of truth.  I would assume at the very least we want to get rid of duplication - which can be found in the csv provided.
--  I'd also note that without any context around these data sources its not entirely clear to me what the source of truth data set should represent.  The grains in these data sets seem to represent contacts at various providers.  There are providers with various locations and contacts.  If the source of truth is a list of providers, then that is different than a source of truth for a list of contacts.  Both require ommiting certain information.
+-  It requests all data to be in a final table and for it to be standardized and a source of truth.  I would think standardizing / creating a source of truth would require removing some data at the very least such as duplicates.  I could keep all of the data and union everything, with a source field but I wouldn't consider that a source of truth nor standardized.
 
-i.e.  A table/view *providers* might just be provider_name and type .  A table/view *providers_site* or *provider_location* might include provider_name (ideally provider_id , connecting to *providers*) and the address / location based attribuets.  Lastly *provider_contacts* would join to *provider_sites* and have the contact info for people at that provider.
+-  I'd also note that without any context around these data sources its not entirely clear to me what the source of truth data set would represent.  The grains in these data sets seem to represent contacts at various providers.  There are providers with various locations and contacts.  If the source of truth is a list of providers, then that is different than a source of truth for a list of contacts.  Both would require ommiting certain information.
 
--  Without the context around these data sets it isn't clear what to use as a base here.  Do we trust one of these source more than the other?  Do we trust the internal API data for instance but want to join in fields that doesn't have like email by joining on the scraped data by the provider name & zip ?  Lots of various ways to go but none are explicity clear.
+i.e.  A standardized table/view *providers* might just be provider_name and type .  A table/view *providers_site* or *provider_location* might include provider_name (ideally provider_id , connecting to *providers*) and the address / location based attribuets.  Lastly *provider_contacts* would join to *provider_sites* and have the contact info for people at that provider.
 
-Happy to proceed with these ideas if you'd like - would just require more time and would want to check to make sure I'm going in the right direction for what you are looking for before proceeding.
+-  Without the context around these data sets it isn't clear what to use as a base here.  Do we trust one of these source more than the other?  Do we trust the internal API data for instance but want to join in fields that it doesn't contain like email by joining on the scraped data by the provider name & zip ?  Lots of various ways to go but none are explicity clear.
+
+Happy to expand upon the data standardization piece of this but would prefer speaking about it first to make sure we're aligned on what you're after.  Happy to continue the excersise using python or SQL.  All of this is in Python - which I use fairly often too, but unfortunately doesn't really highlight my main strengths which I believe to be more on the SQL modelling side.
 
