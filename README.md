@@ -52,3 +52,5 @@ i.e.  A standardized table/view *providers* might just be provider_name and type
 
 Happy to expand upon the data standardization piece of this but would prefer speaking about it first to make sure we're aligned on what you're after.  Happy to continue the excersise using python or SQL.  All of this is in Python - which I use fairly often too, but unfortunately doesn't really highlight my main strengths which I believe to be more on the SQL modelling side.
 
+Feel free to reach out w/ any feedback or questions.
+
