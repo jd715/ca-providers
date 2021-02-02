@@ -28,7 +28,7 @@ To generate HTML data profiles of the various input data sets for EDA / general 
 
 ## Which language, framework and libraries you chose and why
 
-I initially chose R, and created scripts to pull both web data sources.  I did this primarily because I've been doing a lot of coding in R lately.  I realized that using Python might make more sense here though considering its in the Brightwheel stack and I knew all of this could also be done in Python just as easily.  Python in general is a great glue language - talks to almost everything and has packages that span all areas of software.  I knew of BeautifulSoup and use pandas regularly so it was an easy choice for this.
+I initially chose R, and created scripts to pull both web data sources.  I did this primarily because I've been doing a lot of coding in R lately (quicker for me spin something up).  I realized that using Python might make more sense here though considering its in the Brightwheel stack and I knew all of this could also be done in Python just as easily.  Python in general is a great glue language - talks to almost everything and has packages that span all areas of software.  I knew of BeautifulSoup and use pandas regularly so it was an easy choice for this.
 
 BeautifulSoup -> standard web scraping package.  Lots of resources online, chances are any weird edge cases, someone else has had and answer's on stackoverflow.
 Pandas -> standard for working with data, does a million things (though I actually prefer R's tidyverse framework for EDA)
