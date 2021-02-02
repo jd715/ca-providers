@@ -21,6 +21,7 @@ You will need jupyter notebook or jupyter lab installed to explore the .ipynb fi
 ```clean_data.py```
 
 
-Optional
+*Optional*
+
 To generate HTML data profiles of the various input data sets for EDA / general exploration run the following.  This utilizes the pandas-profiling package.
 ```generate_profiles.py```
