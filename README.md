@@ -17,6 +17,10 @@ You will need jupyter notebook or jupyter lab installed to explore the .ipynb fi
 2.  Run a web scraper that will pull down the data from the Heroku API.
 ```retrive_api.py```
 
-2.  Run the following script to clean up and standardize data formats, deduplicate the data, and create a final combined data set.
+3.  Run the following script to clean up and standardize data formats, deduplicate the data, and create a final combined data set.
 ```clean_data.py```
 
+Optional
+
+To generate HTML data profiles of the various input data sets for EDA / general exploration run the following.  This utilizes the pandas-profiling package.
+```generate_profiles.py```
