@@ -5,4 +5,5 @@ See python version for more complete project:  https://github.com/jd715/ca-provi
 Under scripts:
 
 `pull_json.r` pulls data from the API
-`webscapre.r` scrapes data from the html table
+
+`webscrape.r` scrapes data from the html table
